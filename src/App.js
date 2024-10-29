@@ -197,7 +197,7 @@ function Experience() {
           <ul>
             <li>Developed responsive web applications using modern JavaScript frameworks</li>
             <li>Collaborated in an Agile development environment</li>
-            <li>Developed and maintained an ongoing ordering system</li>
+            <li>Developing an ordering system - in progress </li>
             <li>Maintained and updated the company's main website</li>
           </ul>
         </div>

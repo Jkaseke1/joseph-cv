@@ -5,6 +5,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faCode } from '@fortawesome/free-solid-svg-icons';
+
 
 function App() {
   return (
@@ -64,6 +66,9 @@ function Profile() {
             </a>
             <a href="https://www.linkedin.com/in/joseph-kaseke-6b27641b4/" target="_blank" rel="noopener noreferrer" className="social-link linkedin-link">
               <FontAwesomeIcon icon={faLinkedin} /> LinkedIn
+            </a>
+            <a href="https://www.hyperiondev.com/portfolio/JK23120012827/" target="_blank" rel="noopener noreferrer" className="social-link hyperion-link">
+              <FontAwesomeIcon icon={faCode} /> HyperionDev
             </a>
           </div>
         </div>

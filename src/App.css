@@ -205,6 +205,10 @@ section:hover {
   background: #0077b5;
 }
 
+.hyperion-link {
+  background: #FF5733;
+}
+
 .social-link:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);

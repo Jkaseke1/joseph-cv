@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faExternalLinkAlt, faDownload } from '@fortawesome/free-solid-svg-icons';
-
-// Styles
+import React, { useState } from 'react';
 import './App.css';
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 function App() {
   return (
@@ -59,6 +58,14 @@ function Profile() {
             <h3 className="subtitle">Full Stack Web Developer</h3>
           </div>
           <p>Full Stack Web Developer with comprehensive training in modern web technologies. Skilled in building responsive, user-centric applications using the MERN stack. Passionate about creating efficient, scalable solutions and continuously learning new technologies.</p>
+          <div className="social-links">
+            <a href="https://github.com/Jkaseke1" target="_blank" rel="noopener noreferrer" className="social-link github-link">
+              <FontAwesomeIcon icon={faGithub} /> GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/joseph-kaseke-6b27641b4/" target="_blank" rel="noopener noreferrer" className="social-link linkedin-link">
+              <FontAwesomeIcon icon={faLinkedin} /> LinkedIn
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -197,7 +204,7 @@ function Experience() {
           <ul>
             <li>Developed responsive web applications using modern JavaScript frameworks</li>
             <li>Collaborated in an Agile development environment</li>
-            <li>Developing an ordering system - in progress </li>
+            <li>Developed and maintained an ongoing ordering system</li>
             <li>Maintained and updated the company's main website</li>
           </ul>
         </div>

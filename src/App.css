@@ -168,7 +168,6 @@ section:hover {
   transition: transform 0.3s ease;
 }
 
-
 .profile-content {
   flex: 1 1 300px;
 }
@@ -177,6 +176,38 @@ section:hover {
   font-size: clamp(1rem, 1.5vw, 1.1rem);
   line-height: 1.8;
   margin: 0;
+}
+
+/* Social Links */
+.social-links {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.github-link {
+  background: #24292e;
+}
+
+.linkedin-link {
+  background: #0077b5;
+}
+
+.social-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* Skills Section */
@@ -386,6 +417,10 @@ textarea {
   .skills-grid {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
+
+  .social-links {
+    justify-content: center;
+  }
 }
 
 @media (max-width: 480px) {
@@ -415,11 +450,6 @@ textarea {
 @media (min-width: 1400px) {
   .container {
     max-width: 1400px;
-  }
-  
-  .profile-image-container {
-    width: 280px;
-    height: 330px;
   }
 }
 

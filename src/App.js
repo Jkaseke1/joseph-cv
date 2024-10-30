@@ -123,7 +123,7 @@ function Projects() {
         </div>
 
         <div className="project-card">
-          <h3>Web Store Capstone</h3>
+          <h3>Online Store</h3>
           <ul>
             <li>Designed and developed a Web Store using React</li>
             <li>Showcased products from a fictional or real online store</li>

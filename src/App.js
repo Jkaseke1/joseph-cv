@@ -1,23 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
-import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import { faCode } from '@fortawesome/free-solid-svg-icons';
-
 
 function App() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <div className="App">
-      <Header />
+      <Header isScrolled={isScrolled} />
       <main className="container">
         <div className="content-grid">
           <Profile />
+          <Experience />
           <Skills />
           <Projects />
-          <Experience />
           <Contact />
         </div>
       </main>
@@ -26,19 +32,19 @@ function App() {
   );
 }
 
-function Header() {
+function Header({ isScrolled }) {
   return (
-    <header className="glass-header">
+    <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
       <div className="header-content">
         <div className="header-title">
-          <h1>Joseph Kaseke - Full Stack Web Developer CV</h1>
+          <h1>Joseph Kaseke | IT Systems Administrator</h1>
         </div>
-        <nav className="modern-nav">
+        <nav className="nav">
           <ul>
             <li><a href="#profile">Profile</a></li>
+            <li><a href="#experience">Experience</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#projects">Projects</a></li>
-            <li><a href="#experience">Experience</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </nav>
@@ -49,136 +55,17 @@ function Header() {
 
 function Profile() {
   return (
-    <section id="profile" className="profile card-effect">
+    <section id="profile" className="profile">
       <div className="profile-container">
-        <div className="profile-image-container">
-          <img src="/profile-photo.jpg" alt="Joseph Kaseke" className="profile-image" />
-        </div>
         <div className="profile-content">
-          <div className="section-header">
-            <h2>Joseph Kaseke</h2>
-            <h3 className="subtitle">Full Stack Web Developer</h3>
+          <h2>Professional Summary</h2>
+          <p>IT Systems Administrator with 5+ years of experience in enterprise infrastructure management, specializing in data analytics implementation and systems integration. Recently expanded expertise to include Full Stack Development through intensive training in modern web technologies. Proven track record of reducing system downtime by 60% and implementing data analytics solutions that increased operational efficiency by 45%.</p>
+          <div className="contact-info">
+            <a href="mailto:joseph.kaseke@email.com">Email: joseph.kaseke@email.com</a>
+            <a href="https://www.linkedin.com/in/joseph-kaseke-6b27641b4/" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
+            <a href="https://github.com/Jkaseke1" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
+            <a href="https://www.hyperiondev.com/portfolio/JK23120012827/" target="_blank" rel="noopener noreferrer">Development Portfolio</a>
           </div>
-          <p>Full Stack Web Developer with comprehensive training in modern web technologies. Skilled in building responsive, user-centric applications using the MERN stack. Passionate about creating efficient, scalable solutions and continuously learning new technologies.</p>
-          <div className="social-links">
-            <a href="https://github.com/Jkaseke1" target="_blank" rel="noopener noreferrer" className="social-link github-link">
-              <FontAwesomeIcon icon={faGithub} /> GitHub
-            </a>
-            <a href="https://www.linkedin.com/in/joseph-kaseke-6b27641b4/" target="_blank" rel="noopener noreferrer" className="social-link linkedin-link">
-              <FontAwesomeIcon icon={faLinkedin} /> LinkedIn
-            </a>
-            <a href="https://www.hyperiondev.com/portfolio/JK23120012827/" target="_blank" rel="noopener noreferrer" className="social-link hyperion-link">
-              <FontAwesomeIcon icon={faCode} /> HyperionDev
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Skills() {
-  return (
-    <section id="skills" className="skills card-effect">
-      <div className="section-header">
-        <h2>Technical Skills</h2>
-      </div>
-      <div className="skills-grid">
-        <div className="skill-item">Frontend: HTML5, CSS3, JavaScript (ES6+)</div>
-        <div className="skill-item">React.js, Next.js, Redux</div>
-        <div className="skill-item">Node.js, Express.js</div>
-        <div className="skill-item">MongoDB, Mongoose</div>
-        <div className="skill-item">RESTful APIs, JWT Authentication</div>
-        <div className="skill-item">Git, GitHub, Version Control</div>
-        <div className="skill-item">Responsive Design, Bootstrap</div>
-        <div className="skill-item">Testing (Jest)</div>
-      </div>
-      <div className="section-header">
-        <h2>Development Practices</h2>
-      </div>
-      <div className="skills-grid">
-        <div className="skill-item">Agile Methodology</div>
-        <div className="skill-item">Object-Oriented Programming</div>
-        <div className="skill-item">Defensive Programming</div>
-        <div className="skill-item">UI/UX Design Principles</div>
-      </div>
-    </section>
-  );
-}
-
-function Projects() {
-  return (
-    <section id="projects" className="projects card-effect">
-      <div className="section-header">
-        <h2>Projects</h2>
-      </div>
-      <div className="projects-grid">
-        <div className="project-card">
-          <h3>iTunes Search Web Application</h3>
-          <ul>
-            <li>Developed a full-stack web application using React and Express</li>
-            <li>Integrated with the iTunes Search API</li>
-            <li>Enabled users to search for content in the iTunes and Apple Books Stores</li>
-            <li>Allowed users to save their favorite items</li>
-            <li>Demonstrated proficiency in front-end and back-end development</li>
-          </ul>
-          <a href="https://search-app-beta-final.onrender.com" className="project-link" target="_blank" rel="noopener noreferrer">
-            View Project <FontAwesomeIcon icon={faExternalLinkAlt} />
-          </a>
-        </div>
-
-        <div className="project-card">
-          <h3>Online Store</h3>
-          <ul>
-            <li>Designed and developed a Web Store using React</li>
-            <li>Showcased products from a fictional or real online store</li>
-            <li>Consolidated knowledge of React, JSX, and JavaScript</li>
-            <li>Demonstrated ability to create a fully functional e-commerce application</li>
-          </ul>
-          <a href="https://kaseke-web-store-final.onrender.com" className="project-link" target="_blank" rel="noopener noreferrer">
-            View Project <FontAwesomeIcon icon={faExternalLinkAlt} />
-          </a>
-        </div>
-
-        <div className="project-card">
-          <h3>Weather App</h3>
-          <ul>
-            <li>Created a React app to display current weather in a particular city</li>
-            <li>Used the Weather API to retrieve weather data</li>
-            <li>Allowed users to enter city names to get weather data</li>
-            <li>Optionally used geolocation to get the user's local weather</li>
-          </ul>
-          <a href="https://weather-app-4lxp.onrender.com" className="project-link" target="_blank" rel="noopener noreferrer">
-            View Project <FontAwesomeIcon icon={faExternalLinkAlt} />
-          </a>
-        </div>
-
-        <div className="project-card">
-          <h3>Nationality Predictor App</h3>
-          <ul>
-            <li>Created a React app to predict nationality based on a person's name</li>
-            <li>Used the nationalize.io API to fetch nationality data</li>
-            <li>Implemented auto-focused input field and a button to trigger the fetch</li>
-            <li>Displayed details of the first object in the country array</li>
-            <li>Used function components with useState, useEffect, and useRef hooks</li>
-          </ul>
-          <a href="https://nationality-predictor.onrender.com" className="project-link" target="_blank" rel="noopener noreferrer">
-            View Project <FontAwesomeIcon icon={faExternalLinkAlt} />
-          </a>
-        </div>
-
-        <div className="project-card">
-          <h3>Banking Interest Calculator App</h3>
-          <ul>
-            <li>Created a React app to simulate a banking application</li>
-            <li>Displayed the user's current bank balance</li>
-            <li>Allowed users to deposit and withdraw money</li>
-            <li>Included functionality to add interest and charge bank fees</li>
-            <li>Used at least two separate components with a shared state</li>
-          </ul>
-          <a href="https://my-bank-app-x71x.onrender.com" className="project-link" target="_blank" rel="noopener noreferrer">
-            View Project <FontAwesomeIcon icon={faExternalLinkAlt} />
-          </a>
         </div>
       </div>
     </section>
@@ -187,32 +74,131 @@ function Projects() {
 
 function Experience() {
   return (
-    <section id="experience" className="experience card-effect">
-      <div className="section-header">
-        <h2>Experience</h2>
+    <section id="experience" className="experience">
+      <h2>Professional Experience</h2>
+      
+      <div className="experience-item">
+        <h3>IT Systems Administrator</h3>
+        <p>Pulse Pharmaceuticals | 2019 - Present</p>
+        <ul>
+          <li>Maintain 99.9% uptime for critical business systems including:</li>
+          <ul>
+            <li>Enterprise Internet Infrastructure serving 200+ users</li>
+            <li>Microsoft 365 Environment and Active Directory</li>
+            <li>Pastel Evolution ERP System</li>
+            <li>Figjam Sales Force Automation Platform</li>
+            <li>Microsoft Power BI Analytics Environment</li>
+            <li>Sophos Antivirus and Security Infrastructure</li>
+          </ul>
+          <li>Established and manage Data Analytics department, resulting in 45% improvement in reporting efficiency</li>
+          <li>Developed and maintain API integrations processing 10,000+ daily transactions</li>
+          <li>Implemented automated monitoring systems reducing incident response time by 60%</li>
+          <li>Designed and executed comprehensive disaster recovery plan:</li>
+          <ul>
+            <li>Conducted scheduled DR simulations with Acronis backup solution</li>
+            <li>Successfully tested data verification and validity in cloud environment</li>
+            <li>Achieved 1-hour recovery time objective through cloud server deployment</li>
+            <li>Validated DR plan through user acceptance testing with core business functions</li>
+          </ul>
+        </ul>
       </div>
-      <div className="timeline">
-        <div className="timeline-item">
-          <h3>Full Stack Web Developer Bootcamp</h3>
-          <p className="company">HyperionDev</p>
-          <p className="date">2024</p>
+
+      <div className="education-section">
+        <h3>Education & Certifications</h3>
+        <ul>
+          <li>Full Stack Web Development Certification - HyperionDev (2024)</li>
+          <li>Sophos Network Engineer Certification (2023)</li>
+          <li>Cisco CCNA Certification (2019)</li>
+          <li>Advanced SQL Database Administration - Microsoft (2019)</li>
+        </ul>
+      </div>
+    </section>
+  );
+}
+
+function Skills() {
+  return (
+    <section id="skills" className="skills">
+      <h2>Technical Skills</h2>
+      <div className="skills-grid">
+        <div className="skill-category">
+          <h3>Infrastructure & Systems</h3>
           <ul>
-            <li>Built multiple capstone projects including MERN stack applications</li>
-            <li>Mastered modern web technologies including React, Node.js, Express, and MongoDB</li>
-            <li>Implemented authentication, database management, and API development</li>
+            <li>System & Network Administration</li>
+            <li>Windows Server & Active Directory</li>
+            <li>Cloud Infrastructure (AWS/Azure)</li>
+            <li>Virtualization (VMware/Hyper-V)</li>
+            <li>System Security & Compliance</li>
+            <li>Backup & Disaster Recovery</li>
           </ul>
         </div>
-        <div className="timeline-item">
-          <h3>Web Developer Intern</h3>
-          <p className="company">Pulse Pharmaceuticals</p>
-          <p className="date">2024</p>
+        <div className="skill-category">
+          <h3>Development & Programming</h3>
           <ul>
-            <li>Developed responsive web applications using modern JavaScript frameworks</li>
-            <li>Collaborated in an Agile development environment</li>
-            <li>Developed and maintained an ongoing ordering system</li>
-            <li>Maintained and updated the company's main website</li>
+            <li>Full Stack Development (MERN Stack)</li>
+            <li>JavaScript/TypeScript</li>
+            <li>React.js, Node.js, Express.js</li>
+            <li>MongoDB, SQL Databases</li>
+            <li>API Development & Integration</li>
+            <li>Version Control (Git)</li>
           </ul>
         </div>
+        <div className="skill-category">
+          <h3>Business Intelligence</h3>
+          <ul>
+            <li>Data Analytics & Power BI</li>
+            <li>ERP Systems Integration</li>
+            <li>Business Process Automation</li>
+            <li>Performance Monitoring</li>
+            <li>SQL Server Reporting</li>
+            <li>Data Visualization</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Projects() {
+  return (
+    <section id="projects" className="projects">
+      <h2>Key Projects & Achievements</h2>
+      
+      <div className="project-category">
+        <h3>IT Systems Administration Projects (2019-Present)</h3>
+        <ul>
+          <li>Developed and implemented real-time sales analytics system processing 10,000+ daily transactions</li>
+          <li>Reduced report generation time by 75% through automated Power BI dashboards</li>
+          <li>Integrated ERP data with custom API endpoints, improving data accuracy by 95%</li>
+          <li>Implemented credit control monitoring system reducing overdue accounts by 40%</li>
+          <li>Implemented a Sophos Firewall and %</li>
+        </ul>
+      </div>
+
+      <div className="project-category">
+        <h3>Web Development Portfolio (2024)</h3>
+        <ul>
+          <li>iTunes Search Application - Full-stack MERN application with user authentication and favorites system
+            <br />
+            <a href="https://search-app-beta-final.onrender.com" target="_blank" rel="noopener noreferrer">View Project</a>
+          </li>
+          <li>E-Commerce Platform - React-based store with shopping cart and payment integration
+            <br />
+            <a href="https://kaseke-web-store-final.onrender.com" target="_blank" rel="noopener noreferrer">View Project</a>
+          </li>
+          <li>Weather Application - React application with geolocation and API integration
+            <br />
+            <a href="https://weather-app-4lxp.onrender.com" target="_blank" rel="noopener noreferrer">View Project</a>
+          </li>
+          <li>Nationality Predictor - React application with external API integration
+            <br />
+            <a href="https://nationality-predictor.onrender.com" target="_blank" rel="noopener noreferrer">View Project</a>
+          </li>
+          <li>Banking Calculator - Financial application with state management
+            <br />
+            <a href="https://my-bank-app-x71x.onrender.com" target="_blank" rel="noopener noreferrer">View Project</a>
+          </li>
+        </ul>
       </div>
     </section>
   );
@@ -240,23 +226,21 @@ function Contact() {
     setIsSubmitting(true);
     
     setTimeout(() => {
-      toast.success(`Thanks for reaching out, ${formData.name}! I'll get back to you soon.`);
+      toast.success(`Thank you for your message. I will respond promptly.`);
       setFormData({ name: '', email: '', message: '' });
       setIsSubmitting(false);
     }, 1000);
   };
 
   return (
-    <section id="contact" className="contact card-effect">
-      <div className="section-header">
-        <h2>Contact</h2>
-      </div>
+    <section id="contact" className="contact">
+      <h2>Contact Information</h2>
       <form className="contact-form" onSubmit={handleSubmit}>
         <div className="form-group">
           <input
             type="text"
             name="name"
-            placeholder="Your Name"
+            placeholder="Full Name"
             value={formData.name}
             onChange={handleChange}
             required
@@ -267,7 +251,7 @@ function Contact() {
           <input
             type="email"
             name="email"
-            placeholder="Your Email"
+            placeholder="Email Address"
             value={formData.email}
             onChange={handleChange}
             required
@@ -277,12 +261,12 @@ function Contact() {
         <div className="form-group">
           <textarea
             name="message"
-            placeholder="Your Message"
+            placeholder="Message"
             value={formData.message}
             onChange={handleChange}
             required
             disabled={isSubmitting}
-          ></textarea>
+          />
         </div>
         <button type="submit" className="submit-btn" disabled={isSubmitting}>
           {isSubmitting ? 'Sending...' : 'Send Message'}

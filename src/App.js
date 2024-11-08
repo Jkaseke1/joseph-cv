@@ -171,7 +171,7 @@ function Projects() {
           <li>Reduced report generation time by 75% through automated Power BI dashboards</li>
           <li>Integrated ERP data with custom API endpoints, improving data accuracy by 95%</li>
           <li>Implemented credit control monitoring system reducing overdue accounts by 40%</li>
-          <li>Implemented a Sophos Firewall and %</li>
+          <li>Implemented a Sophos XG Firewall to enhance network security measures across the infrastructure</li>
         </ul>
       </div>
 

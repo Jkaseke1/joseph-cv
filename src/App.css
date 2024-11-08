@@ -78,7 +78,7 @@ body {
 /* Section Styles */
 section {
   background: white;
-  padding: 2.5rem;
+  padding: 2.5rem 3.5rem; /* Increased left and right padding */
   margin: 2rem 0;
   border-radius: 8px;
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
@@ -89,6 +89,7 @@ section h2 {
   margin-bottom: 1.5rem;
   border-bottom: 2px solid var(--border-color);
   padding-bottom: 0.5rem;
+  margin-left: -1rem; /* Pull the heading back to align with content */
 }
 
 /* Profile Section */

@@ -83,7 +83,7 @@ function Experience() {
         <ul>
           <li>Maintain 99.9% uptime for critical business systems including:</li>
           <ul>
-            <li>Enterprise Internet Infrastructure serving 200+ users</li>
+            <li>Enterprise Internet Infrastructure serving 150+ users</li>
             <li>Microsoft 365 Environment and Active Directory</li>
             <li>Pastel Evolution ERP System</li>
             <li>Figjam Sales Force Automation Platform</li>
@@ -109,6 +109,7 @@ function Experience() {
           <li>Full Stack Web Development Certification - HyperionDev (2024)</li>
           <li>Sophos Network Engineer Certification (2023)</li>
           <li>Cisco CCNA Certification (2019)</li>
+          <li>Linux VoiP - Astericks Networks (2022)</li>
           <li>Advanced SQL Database Administration - Microsoft (2019)</li>
         </ul>
       </div>
@@ -167,11 +168,26 @@ function Projects() {
       <div className="project-category">
         <h3>IT Systems Administration Projects (2019-Present)</h3>
         <ul>
-          <li>Developed and implemented real-time sales analytics system processing 10,000+ daily transactions</li>
-          <li>Reduced report generation time by 75% through automated Power BI dashboards</li>
-          <li>Integrated ERP data with custom API endpoints, improving data accuracy by 95%</li>
-          <li>Implemented credit control monitoring system reducing overdue accounts by 40%</li>
-          <li>Implemented a Sophos XG Firewall to enhance network security measures across the infrastructure</li>
+          <li>
+            Developed and implemented a real-time sales analytics system using 
+            <strong> Microsoft Power BI</strong>, which processes over 10,000 daily transactions. This system provides actionable insights for decision-making and improves reporting efficiency.
+          </li>
+          <li>
+            Reduced report generation time by 75% through automated dashboards in 
+            <strong> Microsoft Power BI</strong>, enabling timely access to critical sales data.
+          </li>
+          <li>
+            Integrated ERP data with custom API endpoints, enhancing data accuracy by 95%, which supports better inventory management and order processing.
+          </li>
+          <li>
+            Implemented a <strong>Figjam Sales Force Automation</strong> platform that is utilized by field sales representatives to generate orders and monitor inventory. This solution allows field reps to efficiently place orders and conduct telesales from headquarters, streamlining the order generation process.
+          </li>
+          <li>
+            Developed a comprehensive invoice processing system that automatically generates invoices based on orders created by field reps, significantly reducing manual entry errors and improving operational efficiency.
+          </li>
+          <li>
+            Implemented a <strong>Sophos XG Firewall</strong> to enhance network security measures across the infrastructure, ensuring data integrity and protection against cyber threats.
+          </li>
         </ul>
       </div>
 

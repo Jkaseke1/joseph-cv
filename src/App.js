@@ -74,8 +74,8 @@ function Profile() {
           <h2>Professional Summary</h2>
           <p>IT Systems Administrator with 5+ years of experience in enterprise infrastructure management, specializing in data analytics implementation and systems integration. Recently completed a Full Stack Web Development bootcamp with HyperionDev, where I built scalable web apps using modern technologies. Proven track record of reducing system downtime by 60% and implementing data analytics solutions that increased operational efficiency by 45%.</p>
           <div className="contact-info">
-            <a href="mailto:joseph.kaseke@email.com">Email: joseph.kaseke@email.com</a>
-            <a href="https://www.linkedin.com/in/joseph-kaseke-6b27641b4/" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
+            <a href="mailto:joseph.kaseke19@gmail.com">Email: joseph.kaseke19@gmail.com</a>
+            <a href="https://www.linkedin.com/in/joseph-kaseke-45ba48338/" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
             <a href="https://github.com/Jkaseke1" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
             <a href="https://www.hyperiondev.com/portfolio/JK23120012827/" target="_blank" rel="noopener noreferrer">Development Portfolio</a>
           </div>

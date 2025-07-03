@@ -39,7 +39,16 @@ function Header({ isScrolled }) {
       <div className="header-content">
         <div className="header-title">
           <h1>Joseph Kaseke | IT Systems Administrator</h1>
-          <a className="download-btn" href="/Joseph_Kaseke_CV.pdf" download>Download CV</a>
+          {/* Download button for CV */}
+          <a
+            className="download-btn"
+            href="/Joseph_Kaseke_CV.pdf"
+            download="Joseph_Kaseke_CV.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Download CV
+          </a>
         </div>
         <nav className="nav">
           <ul>
@@ -55,6 +64,7 @@ function Header({ isScrolled }) {
     </header>
   );
 }
+
 
 function Profile() {
   return (

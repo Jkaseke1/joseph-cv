@@ -9,7 +9,7 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: Arial, sans-serif; /* Use a standard font */
   margin: 0;
   padding: 0;
   background-color: var(--background-color);
@@ -81,7 +81,7 @@ section {
   padding: 2.5rem 3.5rem; /* Increased left and right padding */
   margin: 2rem 0;
   border-radius: 8px;
-  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+  /* box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05); */ /* REMOVED FOR STRICT ATS COMPLIANCE */
 }
 
 section h2 {
@@ -147,9 +147,14 @@ section h2 {
 
 /* Skills Section */
 .skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  /* IMPORTANT: REMOVED GRID PROPERTIES FOR ATS COMPLIANCE */
+  display: block; /* Ensures skill categories stack vertically */
+  /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
+  /* gap: 2rem; */
+}
+
+.skill-category {
+    margin-bottom: 2rem; /* Adds space between "Technical Skills" and "Soft Skills" */
 }
 
 .skill-category h3 {
